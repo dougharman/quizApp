@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <head>
-	<link type="text/css" rel="stylesheet" href="QuizApp.css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<!--    <meta charset="utf-8">  -->
+    <link type="text/css" rel="stylesheet" href="QuizApp.css">
 	<link href='http://fonts.googleapis.com/css?family=Diplomata+SC' rel='stylesheet' type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-	<script language="javascript" type="text/javascript" src="QuizApp.js"></script>
+	<script language="javascript" type="application/javascript" src="QuizApp.js"></script>
 
 	<title>Quiz App</title>
 </head>
@@ -15,27 +17,30 @@
         <h1>How Well Do You Know Our National Parks?</h1>
     </div>
 	
+    
+    <div><input class="start" type="submit" value="Start the Quiz" />
     <div class="numberCorrect"></div>
+	<br/>
+    <div class="questionNumber"></div>
 	
-    <div class="Questions"></div>
-	
-    <div></div>
+    <div class="response"><span></span></div>
 	
 
     
-    <div id="question"><span></span></div>
+    <div class="question"><span></span></div>
     <div>
-        <div>
-            <ul class="choices">
-                <li><input type="text" name="name_1" id="name_1" value="" /></li>
-                   
-                <li><input type="text" name="name_2" id="name_2" value="" /></li>   
-                    
-                <li><input type="text" name="name_3" id="name_3" value="" /></li>    
-            </ul> 
-        </div>  
+        <ul class="answer">
+            <li><input class="choice" type="submit" name="answer" id="name_1" value="0" /></li>
+               
+            <li><input class="choice" type="submit" name="answer" id="name_2" value="1" /></li>   
+                
+            <li><input class="choice" type="submit" name="answer" id="name_3" value="2" /></li>    
+        </ul> 
     </div>
 
+    <div>
+        <input class="next" type="submit" value="Another Question?" />
+    </div>
 
 </body>
 </html>
