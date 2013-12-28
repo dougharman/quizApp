@@ -5,7 +5,7 @@ var questions = [
 	correct:  1 },
 
 	{
-	question: "Where was 'Butch Cassidy and The Sundance Kid' filmed?", 
+	question: 'Where was "Butch Cassidy and The Sundance Kid" filmed?', 
 	choices:  ["Grand Canyon", "Zion", "Bryce"], 
 	correct:  1 },
     {
@@ -34,13 +34,23 @@ $(document).ready(function () {
 	event.preventDefault();
    
     $(".start").click(function() {
-        start();
+        if (currentQuestion > 0) {
+            re_start();
+            alert('You accidentally clicked "Start" so the Quiz is Re-Starting');
+        } else {
+            start();
+        }
 	});
     
    $(".start").keydown(function (event) {
         event.preventDefault();
         if (event.which == 13) {
-            start();
+            if (currentQuestion > 0) {
+                re_start();
+                alert('You accidentally clicked "Start" so the Quiz is Re-Starting');
+            } else {
+                start();
+            }
         }
     });
 
@@ -63,18 +73,31 @@ $(document).ready(function () {
         });
 
     $(".re_start").click(function() {
-        var currentQuestion = 0;  
-        var currentQuestionNumber = 1;
-        numberCorrect = 0;
-      
+        re_start();
         start();
         });
+
+function re_start() {
+    event.preventDefault();
+    
+    currentQuestion = 0;  
+    currentQuestionNumber = 1;
+    numberCorrect = 0;
+
+    console.log(currentQuestion);
+    console.log(currentQuestionNumber);
+    console.log(numberCorrect);
+    
+    $(".numberCorrect").empty();
+    $(".response").empty();
+    start();        
+}
+
 
 function start() {
     event.preventDefault();
 
-    
-
+    $(".choice").removeClass("hide");
     $(".question").empty();
     $(".question").append("<p>" + questions[currentQuestion].question + "</p> ");
     $("#name_1").val(questions[currentQuestion].choices[0]);
@@ -85,7 +108,8 @@ function start() {
 }
 
 function checkAnswer(guess) {
-    
+    event.preventDefault();
+
     var correctAnswer = questions[currentQuestion].choices[questions[currentQuestion].correct];
     console.log(numberCorrect);
     console.log(guess);
@@ -95,27 +119,36 @@ function checkAnswer(guess) {
     if (guess === questions[currentQuestion].correct) {                                      
         numberCorrect++
         $(".response").empty();
-        $(".response").append("<p> Correct! <p>");
+        $(".response").append("<p style='color: #00E600; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;'> Correct! <p>");
     } else if (guess !== questions[currentQuestion].correct) {
         $(".response").empty();
-        $(".response").append("<p> Sorry, the correct answer is " + correctAnswer + "</p>");
+        $(".response").append("<p><span style='color: red; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;'> Sorry</span>, the correct answer is "  + correctAnswer + " </p>");
     }
-    
+
+// I need an error sequence: (1) if player double-clicks the same answer or (2) clicks another answer after answering the question.  
+// Currently, both actions advance the currentQuestion and currentQuestionNumber
+
+ 
     $(".numberCorrect").empty();
     $(".numberCorrect").append("<p>You've answered " + numberCorrect + " of "  + currentQuestionNumber + " correctly.<p>");
+    
     currentQuestion++
     currentQuestionNumber++
-       
-    
-       
     next();   
    
 }
 
 function next() {
+    event.preventDefault();
+
     $(".next").click(function() {
+    if (currentQuestion === questions.length) {
         $(".response").empty();
-        start();
+        $(".response").append('<p style="color: blue">The Quiz is Over.<br/>To Try Again, Click on "Re-Take the Quiz"</p>'); 
+    } else {
+        $(".response").empty();    
+        start(); 
+    }  
     });
 }
 

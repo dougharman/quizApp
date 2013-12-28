@@ -58,13 +58,16 @@ body {
     
 }
 
-.green {
-	background-color: green;
-}
 
 h1 {
 	font-size: 36px;
 	color: blue;
+	margin: 10px auto;
+	padding: 8px;
+}
+
+.hide {
+	display: none;
 }
 
 input {
@@ -96,38 +99,32 @@ input.start, input.next, input.re_start {
 
 
 
-
-
-input:hover {
-	background-color: blue;
-} 
-
-#name_1::-webkit-input-placeholder, #name_2::-webkit-input-placeholder, 
-#name_3::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #999;
-}
-#name_1:-moz-placeholder, #name_2:-moz-placeholder,
-#name_3:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #999;
-}
-#name_1::-moz-placeholder, #name_2::-moz-placeholder,
-#name_3::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #999;
-}
-#name_1:-ms-input-placeholder, #name_2:-ms-input-placeholder
-#name_3:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #999;
+.numberCorrect {
+	font-size: 22px;
 }
 
 .question {
-	font-size: 24px;
+	font-size: 28px;
+	color: blue;
 }
 
-.red {
-	background-color: red;
+
+.buttons1 ul li {
+	clear: both;
+	display: inline-block;
+	margin-right: 25px;
+	margin-left: 25px;
+	padding: 8px;
 }
 
-.buttons ul li {
+.buttons2 li {
 	clear: both;
 	display: inline-block;
 }
+
+.response {
+	font-size: 28px;
+	margin-top: 10px;
+}
+
+
