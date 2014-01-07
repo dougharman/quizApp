@@ -1,0 +1,35 @@
+ 
+    $(".question_1").click(function () {
+        if (answer === correct) {
+			$("li").addClass("green");
+        } else {
+			$("li").addClass("red");
+		} 
+    });
+
+ 
+/*function newForm2 (question) {
+    event.preventDefault();
+    $(".out_Form2 li:last").append('<form class="form2"><fieldset class="fieldset2"><legend class="legend2"><input class="mentorFeedback" type="checkbox">Mentor&#180;s Feedback</legend><textarea></textarea></fieldset></form>');
+    $("ul.out_Form2>li>form:last>fieldset>textarea").addClass("outputBox2");
+
+    var toAdd_Text = $(".inputBox2").val();
+    $("ul.out_Form2>li>form:last>fieldset>textarea").val(toAdd_Text);
+    $(".inputBox2").val(""); 
+}
+
+var s = "";
+for (var key in questions) {
+    s += key + ": " + questions[key].question;
+    s += "<br />";
+    console.log(s);
+    }  
+
+for (var i = 0; i < questions.length; i++) {
+    questionToAnswer = i;
+    }
+    console.log(questionToAnswer);
+
+*/
+
+
